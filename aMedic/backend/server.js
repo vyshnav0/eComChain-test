@@ -1,14 +1,15 @@
 
 const express = require('express')
-const mongoose = require('mongoose')
-require('dotenv').config()
+const mongoose = require('mongoose');
+const cors = require('cors');
+require('dotenv').config();
 
 const app = express();
 const PORT = 3000;
 const db_url = process.env.DATABASE_URL
 
 app.use(express.json()); // Middleware to parse JSON bodies
-
+app.use(cors()); // cors middleware
 mongoose.connect(db_url)
     .then(()=> console.log("mongodb connected"))
     .catch(err => console.error("mongodb conn error"))

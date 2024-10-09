@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { Router } from "@angular/router";
+import { AuthService } from '../services/auth.service'; 
 
 @Component({
   selector: 'app-login',
@@ -15,15 +16,25 @@ export class LoginComponent {
   password: string='';
 
   //  The constructor method is called when an instance of the component is created
-  constructor(private router: Router){} /* creates a private property in the component called router, 
-                                           which stores the instance of the Router service, enables navigation*/
+  constructor(private authService: AuthService, private router: Router){}   // Inject AuthService and Router
 
-  // functional logic: the loginForm is the state of the form we get from input
+  // susbcribe: to execute an Observable and handle the results. Observables are lazy by default, meaning they don’t execute until they are subscribed to.
   onSubmit(loginForm: any){
     if (loginForm.valid) {
-      console.log("email: ",this.email);
-      console.log("password: ",this.password);
-      this.router.navigate(['/home']);
+      this.authService.login(this.email, this.password).subscribe({
+        next: (response) => {
+          console.log("login successful");
+          this.router.navigate(['/home']);
+        },
+        error: (error) => {
+          alert("invalid creds");
+          console.error(error);
+        },
+        complete: () => {
+          console.log("login request completed");
+        }
+      });
+      
     }
   }
 }
