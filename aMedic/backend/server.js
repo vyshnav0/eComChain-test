@@ -14,6 +14,8 @@ mongoose.connect(db_url)
 const usersRoute = require('./routes/usersRoute')
 app.use('/users', usersRoute);     //middleware for userRoute
 
+const productRoute = require('./routes/productRoute')
+app.use('/products', productRoute);
 
 
 app.get('/', (req, res)=>{
