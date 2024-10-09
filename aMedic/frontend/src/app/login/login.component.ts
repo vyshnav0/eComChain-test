@@ -17,9 +17,10 @@ export class LoginComponent {
   constructor(){}
 
   // functional logic 
-  onSubmit(){
-    console.log("email: ",this.email);
-    console.log("password: ",this.password);
-    
+  onSubmit(loginForm: any){
+    if (loginForm.valid) {
+      console.log("email: ",this.email);
+      console.log("password: ",this.password);
+    }
   }
 }
