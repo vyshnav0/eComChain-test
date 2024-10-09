@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from "@angular/forms";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -14,13 +15,15 @@ export class LoginComponent {
   password: string='';
 
   //  The constructor method is called when an instance of the component is created
-  constructor(){}
+  constructor(private router: Router){} /* creates a private property in the component called router, 
+                                           which stores the instance of the Router service, enables navigation*/
 
-  // functional logic 
+  // functional logic: the loginForm is the state of the form we get from input
   onSubmit(loginForm: any){
     if (loginForm.valid) {
       console.log("email: ",this.email);
       console.log("password: ",this.password);
+      this.router.navigate(['/home']);
     }
   }
 }
