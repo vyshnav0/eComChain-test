@@ -1,0 +1,18 @@
+pictures for meds
+
+meds description page
+    rating for meds 5 stars
+    direction of use, features
+    alternatice meds
+
+home:
+    kinds of meds- vitamins, skincare
+
+
+
+
+
+
+
+backend: 
+    jwt tokens

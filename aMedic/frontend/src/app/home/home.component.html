@@ -1,11 +1,19 @@
 <div class="products-container">
-    <h2>Available products</h2>
-    <ul>
-        <li *ngFor="let product of products">
-            <h3>{{ product.name }}</h3>
-            <p>Price: {{ product.price }} USD</p>
-            <p>Stock: {{ product.stock }} units</p>
-            <p>Company: {{ product.companyName }}</p>
-        </li>
-    </ul>
-</div>
+    <h2>Available Medicines</h2>
+    
+    <div *ngIf="products.length === 0">
+      No products available.
+    </div>
+  
+    <div *ngIf="products.length > 0" class="cards-grid">
+      <div *ngFor="let product of products" class="card">
+        <div class="card-content">
+          <h3>{{ product.name }}</h3>
+          <p>{{ product.companyName }}</p>
+          <!-- <p>Price: ${{ product.price }}</p>
+          <p>Stock: {{ product.stock }} units</p> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
