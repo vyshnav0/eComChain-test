@@ -1,15 +1,30 @@
 <div class="login-container">
     <h2>Login</h2>
-    <!-- save the state of the input fields as loginForm-->
+  
     <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
-        <label for="email">Email: </label>
-        <input type="email" id="email" [(ngModel)]="email" name="email" required email/>   <!-- adding email as trail makes it type of email -->
-
-        <label for="password">Password</label>
-        <input type="password" id="password" name="password" [(ngModel)]="password" required />
-
-        <!-- Disable the button if the form is not valid -->
-        <button type="submit" [disabled]="!loginForm.valid">Login</button>
+      <!-- Email Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="email" name="email" required email #emailModel="ngModel"/>
+        <mat-error *ngIf="emailModel.invalid && emailModel.touched">
+          Please enter a valid email address.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Password Field -->
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="password" name="password" required minlength="6" #passwordModel="ngModel"/>
+        <mat-error *ngIf="passwordModel.invalid && passwordModel.touched">
+          Password must be at least 6 characters.
+        </mat-error>
+      </mat-form-field>
+  
+      <!-- Login Button -->
+      <button mat-raised-button color="primary" type="submit" [disabled]="!loginForm.valid">Login</button>
+  
+      <!-- Error message for invalid login credentials -->
+      <div *ngIf="loginError" class="error">{{ loginError }}</div>
     </form>
-
-</div>
+  </div>
+  
