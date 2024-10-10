@@ -5,11 +5,7 @@ const bcrypt = require('bcrypt');
 
 router.post('/login', async (req, res)=>{
     const {email, password} = req.body;
-
-    const mypass = "mypass";
-    const hashPass = await bcrypt.hash(mypass, 10);
-    console.log("pass: ",hashPass);
-    
+   
     try {
         const user = await User.findOne({email});
         if(!user)
