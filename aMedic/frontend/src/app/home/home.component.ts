@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ProductService } from "../services/product.service";
 import { CommonModule } from "@angular/common";
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
