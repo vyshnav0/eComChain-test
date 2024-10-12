@@ -36,10 +36,11 @@ export class LoginComponent {
       this.authService.login(this.email, this.password).subscribe({
         next: (response) => {
           console.log("login successful");
+          localStorage.setItem('token',response.token);
           this.router.navigate(['/home']);
         },
         error: (error) => {
-          this.loginError = "Invalid credentials"; // Update the error message
+          this.loginError = "invalid credentials"; // Update the error message
           console.error(error);
         },
         complete: () => {

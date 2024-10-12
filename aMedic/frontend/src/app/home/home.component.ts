@@ -18,9 +18,9 @@ export class HomeComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router) { }
 
   ngOnInit(): void {  // the lifecycle hook mentioned above, runs when comp is initialised
+
     this.productService.getProducts().subscribe({
       next: (data) => {
-        // console.log("products",data);
         this.products = data;
       },
       error: (err) => {

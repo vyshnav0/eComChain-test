@@ -3,6 +3,11 @@ const User = require('../models/usersModel')
 const router = express.Router();
 const bcrypt = require('bcrypt');
 
+const jwt = require('jsonwebtoken');
+const authenticateToken = require('../middleware/authMiddleware');
+const JWT_SECRET = process.env.JWT_SECRET;
+
+
 router.post('/login', async (req, res)=>{
     const {email, password} = req.body;
    
@@ -16,18 +21,19 @@ router.post('/login', async (req, res)=>{
             return res.status(400).json({message: "invalid password"})
 
         // if user is found and password is correct
-        res.status(200).json({message: "Login successfull"});
+        const token = jwt.sign({id: user._id}, JWT_SECRET, {expiresIn: '1hr'});
+        res.status(200).json({message: "Login successfull", token: token});
     } catch (error) {
         res.status(500).json({message: "server error",error})
     }
 })
 
-router.get('/me', async (req, res)=>{
+router.get('/me', authenticateToken, async (req, res)=>{
     try {
         // const userId = req.params._id;
         // const user = await User.findById(userId);
 
-        const userEmail = 'johndoe@example.com';
+        const userEmail = 'janesmith@example.com';
         const user = await User.findOne({ email: userEmail });
 
         if(!user)
