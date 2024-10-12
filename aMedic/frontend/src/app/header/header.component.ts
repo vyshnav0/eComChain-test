@@ -15,12 +15,15 @@ import { UserService } from '../services/user.service';
 export class HeaderComponent implements OnInit{
 
   name: string = 'user';  //default name
+  userId: string='';
   constructor(private router: Router, private userService: UserService){}
 
   ngOnInit(): void {
     this.userService.getUserDetails().subscribe({
       next: (data)=>{
+        // console.log('User details:', data); 
         this.name = data.name;
+        this.userId = data._id;
       },
       error: (err)=>{
         console.error('Error fetching user details', err);
@@ -32,9 +35,13 @@ export class HeaderComponent implements OnInit{
     this.router.navigate(['/home'])
   }
 
-  goToProfile(): void{
-    this.router.navigate(['/profile'])
-  }
+  goToProfile(): void {
+    if (this.userId) {
+      this.router.navigate([`/profile/${this.userId}`]);
+    } else {
+      console.error('User ID is not available');
+    }
+  }  
 
   logout(): void{
     sessionStorage.removeItem('token');
