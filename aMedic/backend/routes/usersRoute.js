@@ -30,11 +30,8 @@ router.post('/login', async (req, res)=>{
 
 router.get('/me', authenticateToken, async (req, res)=>{
     try {
-        // const userId = req.params._id;
-        // const user = await User.findById(userId);
-
-        const userEmail = 'janesmith@example.com';
-        const user = await User.findOne({ email: userEmail });
+        const userId = req.user.id;
+        const user = await User.findById(userId);
 
         if(!user)
             return res.status(404).json({message: "usr not found"})
