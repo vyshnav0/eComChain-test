@@ -1,10 +1,27 @@
 <header class="app-header">
     <nav>
         <ul>
-            <li><a (click)="goToHome()">
+            <!-- <li><a (click)="goToHome()">
                 <img src="/assets/images/weblogo.png" alt="Home" class="header-logo" />
-            </a></li>
-            <li><a routerLink="/">User</a></li>
+            </a></li> -->
+
+            <li>
+                <button mat-button (click)="goToHome()">
+                    <img src="/assets/images/weblogo.png" alt="Home" class="header-logo" />
+                </button>
+            </li>
+
+            <li class="user-menu">
+                <button mat-button [matMenuTriggerFor]="profileMenu">{{name}}</button>
+                <mat-menu #profileMenu="matMenu">
+                    <button mat-menu-item (click)="goToProfile()">
+                        <mat-icon>account_circle</mat-icon>
+                    </button>
+                    <button mat-menu-item (click)="logout()">
+                        <mat-icon>logout</mat-icon>
+                    </button>
+                </mat-menu>
+            </li>
         </ul>
     </nav>
 </header>

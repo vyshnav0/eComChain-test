@@ -22,4 +22,20 @@ router.post('/login', async (req, res)=>{
     }
 })
 
+router.get('/me', async (req, res)=>{
+    try {
+        // const userId = req.params._id;
+        // const user = await User.findById(userId);
+
+        const userEmail = 'johndoe@example.com';
+        const user = await User.findOne({ email: userEmail });
+
+        if(!user)
+            return res.status(404).json({message: "usr not found"})
+        res.status(200).json(user); 
+    } catch (error) {   
+        console.error("error fetching from backend",error);
+    }
+});
+
 module.exports = router;
