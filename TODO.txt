@@ -12,7 +12,4 @@ home:
 
 
 invalid creds styling
-
-
-backend: 
-    jwt tokens
+resposive login for mobile
