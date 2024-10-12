@@ -12,4 +12,9 @@ export class ProductService {
   getProducts():Observable<any>{
     return this.http.get(this.apiUrl);
   }
+
+  // a new service for medicine details component
+  getProductById(productId: string):Observable<any>{
+    return this.http.get(`${this.apiUrl}/${productId}`);
+  }
 }

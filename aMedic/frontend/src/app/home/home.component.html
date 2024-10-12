@@ -9,11 +9,9 @@
   
     <div *ngIf="products.length > 0" class="cards-grid">
       <div *ngFor="let product of products" class="card">
-        <div class="card-content">
+        <div class="card-content" (click)="goToMedDesc(product._id)">
           <h3>{{ product.name }}</h3>
           <p>{{ product.companyName }}</p>
-          <!-- <p>Price: ${{ product.price }}</p>
-          <p>Stock: {{ product.stock }} units</p> -->
         </div>
       </div>
     </div>

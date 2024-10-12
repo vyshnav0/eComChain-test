@@ -1,0 +1,16 @@
+<app-header></app-header>
+
+<div class="description-container">
+  <h2>Medicine Details</h2>
+
+  <div *ngIf="product"  class="product-info">
+    <p><strong>Name:</strong> {{ product.name }}</p>
+    <p><strong>Company:</strong> {{ product.companyName }}</p>
+    <p><strong>Price:</strong> {{ product.price.toFixed(2) }} ₹</p>
+    <p><strong>Stock:</strong> {{ product.stock }} units</p>
+  </div>
+
+  <div *ngIf="!product" class="loading">
+    <p>Loading product details...</p>
+  </div>
+</div>
