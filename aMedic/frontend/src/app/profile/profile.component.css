@@ -1,6 +1,3 @@
-/* In your styles.css or angular.json */
-/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
-
 
 .profile-icon {
     display: flex;
@@ -16,36 +13,36 @@
     object-fit: cover;
 }
 
-/* Form styling */
 form {
     display: flex;
     flex-direction: column;
     width: 60%;
     margin: 0 auto;
-    gap: 20px; /* Spacing between form fields */
+    gap: 1px;
 }
 
 mat-form-field {
-    width: 100%; /* Full width form fields */
+    width: 100%;
 }
 
 mat-icon {
     cursor: pointer;
 }
 
-button[mat-icon-button] {
-    position: absolute;
-    right: 5px;
-    top: 5px;
+
+mat-label{
+    color: green;
 }
 
-/* Submit button */
-button[mat-raised-button] {
-    margin-top: 20px;
-    align-self: center;
+.button-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 20px;
 }
 
-/* Responsive design */
+
+
+
 @media (max-width: 768px) {
     form {
         width: 90%;
