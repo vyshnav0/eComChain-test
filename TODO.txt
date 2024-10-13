@@ -1,5 +1,5 @@
 pictures for meds
-
+search in header
 meds description page
     rating for meds 5 stars
     direction of use, features
@@ -10,6 +10,7 @@ home:
 
 
 
-
+Make sure that all the emails are unique
 invalid creds styling
 resposive login for mobile
+tooltip, check for matirtials.io

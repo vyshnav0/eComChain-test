@@ -1,0 +1,53 @@
+/* In your styles.css or angular.json */
+/* @import "~@angular/material/prebuilt-themes/indigo-pink.css"; */
+
+
+.profile-icon {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.profile-icon img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 auto;
+    gap: 20px; /* Spacing between form fields */
+}
+
+mat-form-field {
+    width: 100%; /* Full width form fields */
+}
+
+mat-icon {
+    cursor: pointer;
+}
+
+button[mat-icon-button] {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+
+/* Submit button */
+button[mat-raised-button] {
+    margin-top: 20px;
+    align-self: center;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    form {
+        width: 90%;
+    }
+}

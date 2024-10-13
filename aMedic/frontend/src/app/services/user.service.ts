@@ -18,4 +18,12 @@ export class UserService {
     });
     return this.http.get(this.apiUrl, {headers});
   }
+
+  updateUserDetails(userData: any): Observable<any>{
+    const token = sessionStorage.getItem('token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.put(this.apiUrl, userData, {headers});
+  }
 }

@@ -1,1 +1,39 @@
-<p>profile works!</p>
+<app-header></app-header>
+
+
+<div class="profile-icon">
+    <img src="assets/images/user.png" alt="user icon">
+</div>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName = "name" [readOnly]="!editable" />
+        <button mat-icon-buttton type="button" (click)="toggleEdit()">
+            <mat-icon>{{ editable? 'check' : 'edit' }}</mat-icon>
+        </button>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName= "email" readonly/>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+        <mat-label>Age</mat-label>
+        <input matInput formControlName="age" type="number" [readonly]="!editable" />
+        <button mat-icon-button type="button" (click)="toggleEdit()">
+          <mat-icon>{{ editable ? 'check' : 'edit' }}</mat-icon>
+        </button>
+      </mat-form-field>
+    
+      <mat-form-field appearance="fill">
+        <mat-label>Credit Card</mat-label>
+        <input matInput formControlName="creditCard" [readonly]="!editable" />
+        <button mat-icon-button type="button" (click)="toggleEdit()">
+          <mat-icon>{{ editable ? 'check' : 'edit' }}</mat-icon>
+        </button>
+      </mat-form-field>
+      
+      <button mat-raised-button color="primary" type="submit" *ngIf="editable">Submit</button>
+</form>

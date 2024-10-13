@@ -1,5 +1,5 @@
-const express = require('express')
-const User = require('../models/usersModel')
+const express = require('express');
+const User = require('../models/usersModel');
 const router = express.Router();
 const bcrypt = require('bcrypt');
 
@@ -40,5 +40,22 @@ router.get('/me', authenticateToken, async (req, res)=>{
         console.error("error fetching from backend",error);
     }
 });
+
+router.put('/me', authenticateToken, async (req, res)=>{
+    const userId = req.user.id;
+    const updatedData = req.body;
+
+    try {
+        const user = await User.findByIdAndUpdate(userId, updatedData, {new: true, runValidators: true});
+        // new true= return the newly updated document rather than the original document before the update was applied.
+        // runValidation=  the update operation adheres to the schema validation rules in Mongoose model
+
+        if(!user)
+            return res.status(404).json({message: "user not found"});
+        res.status(200).json({message: "user updated succesfully"});    
+    } catch (error) {
+        res.status(500).json({ message: "error updating user", error });
+    }
+})
 
 module.exports = router;
