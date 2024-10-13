@@ -72,4 +72,8 @@ export class MedicineDetailsComponent {
       console.log("product added to cart");
     }
   }
+
+  goToOrderHistory(): void{
+    this.router.navigate(['/order-history']);
+  }
 }

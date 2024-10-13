@@ -1,15 +1,16 @@
-<!-- order-history.component.html -->
+<app-header></app-header>
+
 <div *ngIf="orderHistory.length > 0">
-    <h2>Order History for Product ID: {{ productId }}</h2>
-    <ul>
-      <li *ngFor="let order of orderHistory">
-        <p>Quantity: {{ order.quantity }}</p>
-        <p>Stock at Order: {{ order.stock }}</p>
-        <p>Order Date: {{ order.orderDate | date }}</p>
-      </li>
-    </ul>
-  </div>
-  <div *ngIf="orderHistory.length === 0">
-    <p>No order history found for this product.</p>
-  </div>
-  
+  <h2>Order History for Product ID: {{ productId }}</h2>
+  <ul>
+    <li *ngFor="let order of orderHistory">
+      <p>Quantity: {{ order.quantity }}</p>
+      <p>Stock at Order: {{ order.stock }}</p>
+      <p>Order Date: {{ order.orderDate | date }}</p>
+    </li>
+  </ul>
+</div>
+<div *ngIf="orderHistory.length === 0">
+  <p>No order history found for this product.</p>
+  <p>jdfjdfd</p>
+</div>

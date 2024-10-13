@@ -32,10 +32,10 @@
       <div class="cart-buttons">
         <div class="add-to-cart">
           <mat-icon (click)="addToCart()" class="add-to-cart-icon">add_shopping_cart</mat-icon>
-          <span>Add to Cart</span>
+          <span (click)="addToCart()">Add to Cart</span>
         </div>
 
-        <button class="past-purchases-button">
+        <button class="past-purchases-button" (click)="goToOrderHistory()">
           <mat-icon>history</mat-icon>
         </button>
       </div>

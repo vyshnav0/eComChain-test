@@ -3,11 +3,12 @@ import { ActivatedRoute } from '@angular/router';
 import { OrderHistoryService } from '../services/order-history.service';
 import { CommonModule } from '@angular/common';
 import { UserService } from '../services/user.service';
+import { HeaderComponent } from '../header/header.component';
 
 @Component({
   selector: 'app-order-history',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './order-history.component.html',
   styleUrl: './order-history.component.css'
 })
