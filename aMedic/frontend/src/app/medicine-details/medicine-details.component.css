@@ -12,6 +12,7 @@
     padding: 20px;
     border-radius: 10px;
     background-color: #f9f9f9;
+    min-width: 900px;
 }
 
 .image-container {
@@ -85,50 +86,49 @@ strong {
 .quantity-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Align items to the start */
-    margin-top: 40px; /* Add some space above */
+    align-items: flex-start;
+    margin-top: 40px;
 }
 
 .quantity-container label {
-    margin-bottom: 1px; /* Space between label and input */
-    font-weight: bold; /* Bold label text */
-    color: #333; /* Label color */
+    margin-bottom: 1px;
+    font-weight: bold;
+    color: #333;
 }
 
 .quantity-input {
-    width: 60px; /* Set a specific width for the input */
-    padding: 8px; /* Padding for better touch */
-    border: 1px solid #ccc; /* Light border */
-    border-radius: 5px; /* Rounded corners */
-    font-size: 14px; /* Font size for better readability */
-    margin-top: 5px; /* Space between label and input */
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-top: 5px;
     margin-left: 2rem;
-
 }
 
 .quantity-input:focus {
-    border-color: #007bff; /* Change border color on focus */
-    outline: none; /* Remove outline */
+    border-color: #007bff;
+    outline: none;
 }
 
 .add-to-cart {
     display: flex;
-    align-items: center; /* Center align items */
+    align-items: center;
     margin-top: 20px;
-    cursor: pointer; /* Pointer cursor for better UX */
-    background-color: #007bff; /* Background color for button */
-    color: white; /* Text color */
-    padding: 10px 15px; /* Padding for button */
-    border-radius: 5px; /* Rounded corners */
-    transition: background-color 0.3s; /* Smooth transition */
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
 }
 
 .add-to-cart:hover {
-    background-color: #0056b3; /* Darker shade on hover */
+    background-color: #0056b3;
 }
 
 .add-to-cart-icon {
-    margin-right: 10px; /* Space between icon and text */
+    margin-right: 10px;
 }
 
 .cart-details {
