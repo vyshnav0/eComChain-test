@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HeaderComponent } from "../header/header.component";
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../services/product.service';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-medicine-details',
@@ -19,10 +20,10 @@ export class MedicineDetailsComponent {
   quantity: number = 1;
 
   // ActivatedRoute service gives you access to the router state, including the parameters of the route currently being processed 
-  constructor(private router: ActivatedRoute, private productService: ProductService) { }
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private productService: ProductService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.productId = this.router.snapshot.paramMap.get('id')
+    this.productId = this.activatedRoute.snapshot.paramMap.get('id')
 
     if (this.productId) {
       // console.log("medicineDetailsComponent initialized");
@@ -30,7 +31,6 @@ export class MedicineDetailsComponent {
       this.productService.getProductById(this.productId).subscribe({
         next: (data) => {
           console.log("API call success", data);
-
           this.product = data;
         },
         error: (err) => {
@@ -41,6 +41,22 @@ export class MedicineDetailsComponent {
   }
 
   addToCart(): void {
+
+    this.userService.getUserDetails().subscribe({
+      next: (user) => {
+        console.log("User details:", user);        
+        if (!user.creditCardNumber) {
+          alert("Please input your credit card details first!");
+          this.router.navigate([`/profile/${user._id}`]);
+          return;
+        }
+      },
+      error: (err)=>{
+        console.error("error getting user details for redirection");
+      }
+    });
+
+
     if (this.product.stock >= this.quantity) {
       const updatedStock = this.product.stock - this.quantity;
 
