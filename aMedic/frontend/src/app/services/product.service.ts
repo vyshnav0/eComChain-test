@@ -17,4 +17,9 @@ export class ProductService {
   getProductById(productId: string):Observable<any>{
     return this.http.get(`${this.apiUrl}/${productId}`);
   }
+
+  // service used by add to cart
+  updateProductStock(productId: string, newStock: number): Observable<any>{
+    return this.http.patch(`${this.apiUrl}/${productId}`, {stock: newStock});
+  }
 }
