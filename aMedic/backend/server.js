@@ -20,6 +20,8 @@ app.use('/users', usersRoute);     //middleware for userRoute
 const productRoute = require('./routes/productRoute')
 app.use('/products', productRoute);
 
+const orderHistoryRoute = require('./routes/orderHistoryRoute');
+app.use('/history', orderHistoryRoute);
 
 app.get('/', (req, res)=>{
     res.send("backend");

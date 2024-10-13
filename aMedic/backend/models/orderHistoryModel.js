@@ -11,7 +11,7 @@ const orderHistorySchema = new mongoose.Schema({
         ref: 'Product',
         required: true
     },
-    quantity:{
+    quantity: {
         type: Number,
         required: true
     },
@@ -23,7 +23,9 @@ const orderHistorySchema = new mongoose.Schema({
         type: Number,
         required: true
     }
-});
+}, { collection: 'orderHistory' }); // Explicit collection name
+// normal way wont work cz Mongoose will look for a collection named orderhistories (lowercased and pluralized).
+
 
 const OrderHistory = mongoose.model('OrderHistory', orderHistorySchema);
 module.exports = OrderHistory;
