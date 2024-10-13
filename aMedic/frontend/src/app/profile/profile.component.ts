@@ -70,6 +70,8 @@ export class ProfileComponent implements OnInit {
         next: () => {
           console.log('User information updated');
           this.toggleEdit(); 
+          window.location.reload();
+          //change this if you get time, setup a service to dynamically refresh header
         },
         error: (err) => {
           console.error("Error updating user details", err);

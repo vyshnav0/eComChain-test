@@ -32,6 +32,7 @@ mat-icon {
 
 mat-label{
     color: green;
+    font-weight: bold;
 }
 
 .button-container{
