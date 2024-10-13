@@ -31,6 +31,7 @@
     flex: 2;
     margin-left: 50px;
     font-family: Arial, sans-serif;
+    width: 30px;
 }
 
 .other-details h4 {
@@ -81,6 +82,55 @@ strong {
     font-weight: bold;
 }
 
-.add-to-cart{
-    
+.quantity-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the start */
+    margin-top: 40px; /* Add some space above */
+}
+
+.quantity-container label {
+    margin-bottom: 1px; /* Space between label and input */
+    font-weight: bold; /* Bold label text */
+    color: #333; /* Label color */
+}
+
+.quantity-input {
+    width: 60px; /* Set a specific width for the input */
+    padding: 8px; /* Padding for better touch */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 5px; /* Rounded corners */
+    font-size: 14px; /* Font size for better readability */
+    margin-top: 5px; /* Space between label and input */
+    margin-left: 2rem;
+
+}
+
+.quantity-input:focus {
+    border-color: #007bff; /* Change border color on focus */
+    outline: none; /* Remove outline */
+}
+
+.add-to-cart {
+    display: flex;
+    align-items: center; /* Center align items */
+    margin-top: 20px;
+    cursor: pointer; /* Pointer cursor for better UX */
+    background-color: #007bff; /* Background color for button */
+    color: white; /* Text color */
+    padding: 10px 15px; /* Padding for button */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s; /* Smooth transition */
+}
+
+.add-to-cart:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+
+.add-to-cart-icon {
+    margin-right: 10px; /* Space between icon and text */
+}
+
+.cart-details {
+    margin-top: 2rem; 
 }
