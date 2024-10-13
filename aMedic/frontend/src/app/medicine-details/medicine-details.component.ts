@@ -73,7 +73,7 @@ export class MedicineDetailsComponent {
     }
   }
 
-  goToOrderHistory(): void{
-    this.router.navigate(['/order-history']);
+  goToOrderHistory(productId: string): void{
+    this.router.navigate(['/order-history',{ id: productId }]);
   }
 }
