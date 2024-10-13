@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { OrderHistoryService } from '../services/order-history.service';
 import { CommonModule } from '@angular/common';
+import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'app-order-history',
@@ -16,27 +17,34 @@ export class OrderHistoryComponent implements OnInit{
   productId: string = '';
   userId: string = '';
 
-  constructor(private route: ActivatedRoute, private orderHistoryService: OrderHistoryService) {}
+  constructor(private route: ActivatedRoute, private orderHistoryService: OrderHistoryService, private userService: UserService) {}
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
     if (id) {
       this.productId = id; // Assign only if id is not null
-      this.userId = '6705805b10383e99a0ca601e';
   
-      this.orderHistoryService.getOrderHistory(this.productId, this.userId).subscribe({
-        next: (data) => {
-          this.orderHistory = data;
-          console.log(data);
+      this.userService.getUserDetails().subscribe({
+        next: (user) => {
+          this.userId = user._id;
+  
+          // fetch orderhistory only after we get userid from userServices
+          this.orderHistoryService.getOrderHistory(this.productId, this.userId).subscribe({
+            next: (data) => {
+              this.orderHistory = data;
+              // console.log("boo", data);
+            },
+            error: (err) => {
+              console.error("error fetching order history", err);
+            }
+          });
         },
         error: (err) => {
-          console.error("error fetching order history", err);
+          console.error(err);
         }
       });
-    } else {
-      console.error("Product ID is missing.");
-      // Handle the case where the product ID is not available
     }
   }
+  
   
 }

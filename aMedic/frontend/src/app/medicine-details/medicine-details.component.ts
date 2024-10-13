@@ -6,12 +6,11 @@ import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
 import { UserService } from '../services/user.service';
-import { OrderHistoryComponent } from '../order-history/order-history.component';
 
 @Component({
   selector: 'app-medicine-details',
   standalone: true,
-  imports: [HeaderComponent, CommonModule, MatIconModule, FormsModule, OrderHistoryComponent],
+  imports: [HeaderComponent, CommonModule, MatIconModule, FormsModule],
   templateUrl: './medicine-details.component.html',
   styleUrl: './medicine-details.component.css'
 })
