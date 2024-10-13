@@ -3,7 +3,7 @@
 }
 
 h2 {
-    text-align: center;
+    text-align:left;
     color: #333;
 }
 
@@ -26,10 +26,11 @@ h2 {
 .card:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
 }
 
 .card-content {
-    text-align: center;
+    text-align: left;
 }
 
 h3 {
