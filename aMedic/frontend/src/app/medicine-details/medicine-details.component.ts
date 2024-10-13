@@ -44,7 +44,7 @@ export class MedicineDetailsComponent {
 
     this.userService.getUserDetails().subscribe({
       next: (user) => {
-        console.log("User details:", user);        
+        // console.log("User details:", user);        
         if (!user.creditCardNumber) {
           alert("Please input your credit card details first!");
           this.router.navigate([`/profile/${user._id}`]);
