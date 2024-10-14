@@ -46,7 +46,12 @@ export class OrderHistoryComponent implements OnInit {
                     totalPrice: order.quantity * product.price,
                     orderDate: new Date(order.orderDate),
                     stockAtOrder: order.stockAtOrder
-                  }))
+                  }));
+
+                  // sorting based on date
+                  this.orderHistory.sort((a, b)=> 
+                    b.orderDate.getTime() - a.orderDate.getTime()
+                  );
                 },
                 error: (err) => {
                   console.error("error fetching order history", err);
