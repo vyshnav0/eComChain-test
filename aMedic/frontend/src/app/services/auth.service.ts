@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
+import { environment } from "../../environments/environment";
 
 /*
     Injectable decorator marks the class as one that can be decorated as a service
@@ -17,7 +18,8 @@ import { Observable } from "rxjs";
 })
 
 export class AuthService{
-    private apiUrl = 'http://localhost:3000/users/login';
+    // private apiUrl = 'http://localhost:3000/users/login';
+    private apiUrl = `${environment.apiUrl}/users/login`;
 
     constructor(private http: HttpClient) {} //private property http for using this instance of HttpClient
 
