@@ -6,7 +6,7 @@ import { UserService } from '../services/user.service';
 import { MatInputModule } from '@angular/material/input'; // Import MatInputModule
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button'; // Import MatButtonModule
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -35,7 +35,7 @@ export class ProfileComponent implements OnInit {
       name: [{ value: '', disabled: true }],
       email: [{ value: '', disabled: true }],
       age: [{ value: '', disabled: true }],
-      creditCardNumber: [{ value: '', disabled: true }]
+      creditCardNumber: [{ value: '', disabled: true }, [this.creditCardValidator]]
     });
   }
 
@@ -78,5 +78,12 @@ export class ProfileComponent implements OnInit {
         }
       });
     }
+  }
+
+  creditCardValidator(control: AbstractControl){
+    const value = control.value;
+    const regex = /^(?:\d{4}-?\d{4}-?\d{4}-?\d{4}|\d{16}|)$/;
+
+    return regex.test(value) ? null: {invalidCreditCard: true};
   }
 }

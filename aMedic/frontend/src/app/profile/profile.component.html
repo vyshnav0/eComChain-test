@@ -22,7 +22,7 @@
   <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
       <mat-label>Name</mat-label>
-      <input matInput formControlName="name" [disabled]="!editable">
+      <input matInput formControlName="name" [disabled]="!editable" required>
     </mat-form-field>
 
     <mat-form-field appearance="fill">
@@ -38,6 +38,9 @@
     <mat-form-field appearance="fill">
       <mat-label>Credit Card</mat-label>
       <input matInput formControlName="creditCardNumber" [disabled]="!editable">
+      <mat-error *ngIf="userForm.get('creditCardNumber')?.hasError('invalidCreditCard')">
+        Enter a valid credit card number
+      </mat-error>
     </mat-form-field>
   </form>
 </div>
