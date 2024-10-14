@@ -67,6 +67,7 @@ export class MedicineDetailsComponent {
             }
           });
           console.log("product added to cart");
+          alert("Added to Cart!");
         }
       },
       error: (err)=>{
@@ -76,6 +77,7 @@ export class MedicineDetailsComponent {
   }
 
   goToOrderHistory(productId: string): void{
+    // can use getOrderhistory service to check and if a history exist, enable that history button later
     this.router.navigate(['/order-history',{ id: productId }]);
   }
 
