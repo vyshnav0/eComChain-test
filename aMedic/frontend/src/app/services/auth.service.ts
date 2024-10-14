@@ -17,7 +17,8 @@ import { Observable } from "rxjs";
 })
 
 export class AuthService{
-    private apiUrl = 'http://localhost:3000/users/login';
+    // private apiUrl = 'http://localhost:3000/users/login';
+    private apiUrl = 'https://ideal-disco-r5w6jpx6p4pc5q4r-3000.app.github.dev/users/login';
 
     constructor(private http: HttpClient) {} //private property http for using this instance of HttpClient
 

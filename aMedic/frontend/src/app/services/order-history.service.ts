@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class OrderHistoryService {
 
-  private apiUrl = 'http://localhost:3000/history';
+  // private apiUrl = 'http://localhost:3000/history';
+  private apiUrl = 'https://ideal-disco-r5w6jpx6p4pc5q4r-3000.app.github.dev/history';
 
   constructor(private http: HttpClient) { }
 
