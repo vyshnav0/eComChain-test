@@ -19,7 +19,7 @@ const orderHistorySchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    stock: {
+    stockAtOrder: {
         type: Number,
         required: true
     }

@@ -21,4 +21,8 @@ export class OrderHistoryService {
 
     return this.http.get(this.apiUrl,{params});
   }
+
+  updateOrderHistory(updatedHistory: any): Observable<any>{
+    return this.http.post(this.apiUrl, updatedHistory);
+  }
 }

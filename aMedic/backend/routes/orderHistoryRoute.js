@@ -24,4 +24,25 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.post('/', async (req, res)=>{
+    const { userId, productId, quantity, stockAtOrder, orderDate } = req.body;
+
+    if (!userId || !productId || !quantity || !stockAtOrder || !orderDate)
+        return res.status(400).json({ message: "Missing required fields" });
+    
+    try {
+        const newOrder = new OrderHistory({
+            userId,
+            productId,
+            quantity,
+            stockAtOrder,
+            orderDate
+        });
+        await newOrder.save();
+        res.status(201).json({message: "order history added"})
+    } catch (error) {
+        res.status(500).json({message: "error creating order history",error});
+    }
+})
+
 module.exports = router;

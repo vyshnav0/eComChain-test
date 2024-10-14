@@ -5,12 +5,18 @@ meds description page
     direction of use, features
     alternatice meds
 
-home:
-    kinds of meds- vitamins, skincare
 
+change is needed on the frontend, like a list of each time we ordered something: 
+	quantity,
+	date, 
+	stock at order
 
 
 Make sure that all the emails are unique
-invalid creds styling
+invalid creds styling   errorState: boolean
+
+credit card verification for type
+
+
 resposive login for mobile
 tooltip, check for matirtials.io
