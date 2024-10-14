@@ -24,7 +24,18 @@ This project showcases a sample medical store e-commerce website using a MEAN st
 
 ## 🚀 Setup Instructions
 
-### 1. Database Setup
+### 1. Environment Variables
+-Ensure you create a `.env` file in the root of your backend directory to store the following values:
+
+```plaintext
+# MongoDB connection string
+DATABASE_URL=mongodb://<username>:<password>@<cluster-url>/<database-name>
+
+# JWT Secret Key for signing tokens
+JWT_SECRET=your_jwt_secret_key
+
+```
+### 2. Database Setup
 - Set up a MongoDB database with the following collections:
   - **User**
   - **Products**
@@ -76,7 +87,7 @@ This project showcases a sample medical store e-commerce website using a MEAN st
 - **Note:** Jane Smith does not have a credit card number as per the project requirement.
 - **Note:** userId and productId of OrderHistory collection is refernce to the unique id of User and Product db.
 
-### 2. Key Database Functionalities
+### 3. Key Database Functionalities
 - **Email Uniqueness:** An index is added to ensure email uniqueness during the database setup.
 - **Profile Updates:** Users can update details such as name, age, and credit card number. Email and password updates are restricted (would require email verification for security and users are predefined as of).
 - **Credit Card Prompt:** If a user’s credit card number is missing, the application will prompt for it during product purchases.
