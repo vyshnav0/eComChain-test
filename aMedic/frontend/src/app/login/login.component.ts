@@ -40,7 +40,7 @@ export class LoginComponent {
           this.router.navigate(['/home']);
         },
         error: (error) => {
-          this.loginError = "invalid credentials"; // Update the error message
+          this.loginError = "Invalid credentials"; // Update the error message
           console.error(error);
         },
         complete: () => {

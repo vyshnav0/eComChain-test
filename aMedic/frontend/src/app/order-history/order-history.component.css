@@ -33,3 +33,9 @@ h2 {
 .order-history-table tr:hover {
     background-color: #f1f1f1;
 }
+
+.no-history{
+    text-align: center;
+    font-size: 20px;
+    margin-top: 60px;
+}
